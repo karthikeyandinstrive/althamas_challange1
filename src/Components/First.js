@@ -2,8 +2,9 @@ import React from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useEffect } from 'react';
 
-const SignupForm = () => {
+const FristScreen = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(3,'must be at least 3 chars1').required('Name is required'),
     mobile: Yup.string().min(10,'must be 10 chars1').max(10,'must be 10 chars1').required('Name is required'),
@@ -24,6 +25,16 @@ const SignupForm = () => {
       // Perform signup logic here
     },
   });
+
+  const handleLocalStorage = () => {
+    // localStorage.setItem('StudentData', JSON.stringify({ ...formData }));
+
+  };
+  useEffect(()=>{
+    let studentData = JSON.parse(localStorage.getItem("StudentData"))
+    console.log(studentData,"studentData")
+    formik.setFieldValue("name", "someNumber")
+  },[])
 
   return (
     <div style={{padding :"100px"}}>
@@ -94,4 +105,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default FristScreen;

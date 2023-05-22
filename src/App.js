@@ -10,6 +10,7 @@ import First from "./Components/First";
 import Secound from './Components/Secound';
 import Third from './Components/Third';
 import Header from './Components/Navebar/header';
+import Home from "./Components/Home"
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
       {/* <Route path="/login">
         <Login/>
       </Route> */}
+      <Route path="/home">
+        <Home />
+      </Route>
       <Route path="/first">
         <First />
       </Route>
