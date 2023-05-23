@@ -33,7 +33,7 @@ export default function Header() {
           </Typography>
           
       
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link to="/first" style={{textDecoration:"none", color:"white"}}>
           First Screen
             </Link>
@@ -50,7 +50,7 @@ export default function Header() {
           <Link to="/third" style={{textDecoration:"none", color:"white"}}>
             Third Screen
             </Link>
-          </Typography>
+          </Typography> */}
 
   
         </Toolbar>

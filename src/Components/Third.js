@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { TextField, Button } from '@material-ui/core';
 
 function Third() {
 
@@ -29,16 +30,14 @@ function Third() {
         //   }
         })
           .then((res) => {
-           
-             
-            console.log(res)
-           
-    
+            console.log(res,"dsffsdfs")
+           alert("your data has been sumbited")
     
           })
           .catch((err) => {
             
-            console.log(err)
+            console.log(err.message,"zcxczcz")
+            alert(err.message)
           })
       }
 
@@ -65,7 +64,8 @@ function Third() {
     <div>State : {SecoundScreenData &&  SecoundScreenData.state}</div>
     <div>Country: {SecoundScreenData && SecoundScreenData.country}</div>
     <div>Pincode: {SecoundScreenData &&  SecoundScreenData.pincode}</div>
-    <button onClick={handleSubmit}>Submit</button>
+    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit</Button>
+    
     </div>
   )
 }

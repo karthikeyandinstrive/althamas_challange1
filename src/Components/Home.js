@@ -8,12 +8,50 @@ import Typography from '@mui/material/Typography';
 import First from "./First"
 import Secound from './Secound';
 import Third from './Third';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+
+
+
+//   const validationSchema = Yup.object().shape({
+//     name: Yup.string().min(3,'must be at least 3 chars1').required('Name is required'),
+//     mobile: Yup.string().min(10,'must be 10 chars1').max(10,'must be 10 chars1').required('Name is required'),
+//     email: Yup.string().email('Invalid email').required('Email is required'),
+//     password: Yup.string().required('Password is required'),
+//   });
+
+//   const myformik = useFormik({
+//     initialValues: {
+//       name: '',
+//       mobile:'',
+//       email: '',
+//       password: '',
+//     },
+//     validationSchema,
+//     onSubmit: (values) => {
+//       console.log(values,"dfdfdfdfdfdf");
+//       localStorage.setItem('FirstScreen', JSON.stringify(values));
+      
+//       // Perform signup logic here
+//     },
+//   });
+
+
+// console.log(myformik,"myfodsdfdsfsfsdfrmik")
+
+
+
+
+
+
+
+
 
   const isStepOptional = (step) => {
     return step === 1;
@@ -24,6 +62,8 @@ export default function HorizontalLinearStepper() {
   };
 
   const handleNext = () => {
+    // myformik.handleSubmit()
+   
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -56,6 +96,19 @@ export default function HorizontalLinearStepper() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -90,6 +143,7 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
+        {/* <form onSubmit={myformik.handleSubmit}> */}
           <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
           {activeStep===0?<First/>
           :activeStep===1?<Secound/>
@@ -111,10 +165,16 @@ export default function HorizontalLinearStepper() {
               </Button>
             )}
 
-            <Button onClick={handleNext}>
+            <Button 
+            onClick={handleNext}
+            // onClick={myformik.onSubmit}
+            // onSubmit={myformik.handleSubmit}
+            // type='submit'
+            >
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
             </Button>
           </Box>
+          {/* </form> */}
         </React.Fragment>
       )}
     </Box>

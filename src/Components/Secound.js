@@ -14,7 +14,7 @@ const SecoundScreen = () => {
 
     const [searchLocation, setSearchLocation] = useState("")
     const [locationList, setLocationList] = useState([])
-    const [selectedLocation, setSelectedLocation] = useState("")
+    const [selectedLocation, setSelectedLocation] = useState("fdsfdsfsd")
 
     console.log(selectedLocation, "selectedLocation")
 
@@ -78,7 +78,7 @@ const SecoundScreen = () => {
         },
         validationSchema,
         onSubmit: (values) => {
-            console.log(values);
+            console.log(values,"sadasdasdasdasda");
             localStorage.setItem('SecoundScreen', JSON.stringify(values));
             // Perform signup logic here
         },
@@ -106,6 +106,22 @@ const SecoundScreen = () => {
     //     });
     // };
 
+
+    useEffect(()=>{
+        
+        let SecoundScreen = JSON.parse(localStorage.getItem("SecoundScreen"))
+        
+        console.log(SecoundScreen,"SecoundScreen")
+    
+        formik.setFieldValue("addressLine1",SecoundScreen.addressLine1 )
+        formik.setFieldValue("addressLine2",SecoundScreen.addressLine2 )
+        formik.setFieldValue("city",SecoundScreen.city )
+        formik.setFieldValue("country",SecoundScreen.country )
+        formik.setFieldValue("pincode",SecoundScreen.pincode )
+        formik.setFieldValue("state",SecoundScreen.state )
+     
+      },[])
+
     return (
 
 
@@ -125,6 +141,7 @@ const SecoundScreen = () => {
                     freeSolo
                     disableClearable
                     options={locationList}
+                   
                     // style={{ padding: "0px 10px" }}
                     fullWidth
                     // size="small"
@@ -139,6 +156,7 @@ const SecoundScreen = () => {
                             // className="input-fields shadow"
                             variant="outlined"
                             label="Search location"
+                            value={selectedLocation}
                             
 
                         />
