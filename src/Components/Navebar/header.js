@@ -27,7 +27,7 @@ export default function Header() {
           </IconButton>
        
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/home" style={{textDecoration:"none", color:"white"}} >
+          <Link to="/" style={{textDecoration:"none", color:"white"}} >
             Home
             </Link>
           </Typography>

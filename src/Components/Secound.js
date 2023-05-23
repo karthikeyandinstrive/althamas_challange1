@@ -80,31 +80,11 @@ const SecoundScreen = () => {
         onSubmit: (values) => {
             console.log(values,"sadasdasdasdasda");
             localStorage.setItem('SecoundScreen', JSON.stringify(values));
+            alert("Secound Screen data is saved")
             // Perform signup logic here
         },
     });
 
-    // const handlePlaceSelect = (place) => {
-    //     console.log(place, "handlePlaceSelect")
-    //     const { properties } = place.data;
-
-    //     const addressLine1 = properties.formatted;
-    //     const addressLine2 = properties.street || '';
-    //     const city = properties.city || '';
-    //     const state = properties.state || '';
-    //     const country = properties.country || '';
-    //     const pincode = properties.postalCode || '';
-
-    //     formik.setValues({
-    //         ...formik.values,
-    //         addressLine1,
-    //         addressLine2,
-    //         city,
-    //         state,
-    //         country,
-    //         pincode,
-    //     });
-    // };
 
 
     useEffect(()=>{

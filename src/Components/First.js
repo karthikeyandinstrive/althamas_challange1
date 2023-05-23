@@ -28,6 +28,7 @@ const FristScreen = () => {
     onSubmit: (values) => {
       console.log(values,"values");
       localStorage.setItem('FirstScreen', JSON.stringify(values));
+     alert("First Screen data is saved")
       
       // Perform signup logic here
     },
@@ -52,17 +53,50 @@ useEffect(()=>{
     formik.setFieldValue("name",FirstScreen.name )
     formik.setFieldValue("email",FirstScreen.email )
     formik.setFieldValue("mobile",FirstScreen.mobile )
+    formik.setFieldValue("photo",FirstScreen.photo )
  
   },[])
 
+  const convertBase64 = async (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file)
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      }
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    })
+  }
+
+  const handlePhoto = async (e) => {
+    const imageBase64 = await convertBase64(e.target.files[0])
+    console.log(imageBase64, "imageBase64");
+    setPhoto(imageBase64)
+    formik.setFieldValue("photo",imageBase64 )
 
 
+  }
 
   return (
     <div style={{padding :"100px"}}>
     <form onSubmit={formik.handleSubmit}>
 
- 
+    <img src={formik.values.photo} alt="student icon" style={{ width: "200px" , height:"200px" }} /><br /><br />
+            <div>
+
+              <input
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                name="photo"
+                onChange={handlePhoto}
+
+                style={{ background: "#3E92CC", color: "#fff", }}
+
+              />
+              {/* <UploadFileIcon /> */}
+            </div>
 
 
       <TextField

@@ -11,7 +11,7 @@ import Third from './Third';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+const steps = ['Step 1', 'Step 2', 'Step 3'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);

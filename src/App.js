@@ -27,7 +27,7 @@ function App() {
       {/* <Route path="/login">
         <Login/>
       </Route> */}
-      <Route path="/home">
+      <Route path="/">
         <Home />
       </Route>
       <Route path="/first">
