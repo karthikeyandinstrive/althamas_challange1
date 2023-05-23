@@ -21,7 +21,9 @@ const FristScreen = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      console.log(values,"values");
+      localStorage.setItem('FirstScreen', JSON.stringify(values));
+      
       // Perform signup logic here
     },
   });
@@ -98,7 +100,7 @@ const FristScreen = () => {
       />
 
       <Button type="submit" variant="contained" color="primary">
-        Next
+        Submit
       </Button>
     </form>
     </div>
